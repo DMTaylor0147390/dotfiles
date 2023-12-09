@@ -1,0 +1,9 @@
+[submodule "vim/.vim/bundle/vundle"]
+    path = vim/.vim/bundle/vundle
+      url = https://github.com/gmarik/vundle.git
+[submodule "emacs/.emacs.d"]
+    path = emacs/.emacs.d
+      url = https://github.com/syl20bnr/spacemacs
+[submodule "emacs/.spacemacs.d"]
+    path = emacs/.spacemacs.d
+      url = https://github.com/practicalli/spacemacs-config
