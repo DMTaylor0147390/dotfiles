@@ -75,7 +75,18 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(magit vterm)
+   dotspacemacs-additional-packages '(
+                                      magit
+                                      vterm
+                                      ;; workaround for renamed string-edit package (renamed from string-edit to string-edit-at-point leading to
+                                      ;; issues in spacemacs, that expects string-edit. the commit is  the last before the rename of the package)
+                                      ;; should be removed after the spacemacs issue is resolved (see https://github.com/syl20bnr/spacemacs/issues/15648)
+                                      (string-edit :location (recipe :fetcher github :repo "magnars/string-edit.el" :commit "d7c4b9db6c4987b5c022a9858e6302a4c53aff5f"))
+
+                                      ;; From https://github.com/syl20bnr/spacemacs/issues/10972
+                                      ;; evil-ediff was removed from elpa, but is still referenced in spacemacs-edit layer...
+                                      (evil-ediff :location (recipe :fetcher github :repo "emacs-evil/evil-ediff"))
+                                      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -412,5 +423,6 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
+ '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t)
+ '(org-document-title ((t (:foreground "#f8f6f2" :weight normal :height 1.0 :family "sans")))))
 )
