@@ -88,6 +88,7 @@ brew "node"
 brew "mongosh"
 brew "mysql", restart_service: true
 brew "ncurses"
+brew "neofetch"
 brew "netcat"
 brew "nmap"
 brew "python@3.10"
