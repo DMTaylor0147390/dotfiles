@@ -6,4 +6,7 @@
       url = https://github.com/DMTaylor0147390/spacemacs
 [submodule "emacs/.spacemacs.d"]
     path = emacs/.spacemacs.d
-      url = https://github.com/practicalli/spacemacs-config
+  url = https://github.com/practicalli/spacemacs-config
+[submodule "new-emacs-config"]
+    path = new-emacs-config
+      url = https://github.com/DMTaylor0147390/spacemacs
