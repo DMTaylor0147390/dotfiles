@@ -68,6 +68,7 @@ brew "elixir"
 brew "emacs", restart_service: true
 brew "exa"
 brew "exiftool"
+brew "fd"
 brew "fdupes"
 brew "fzf"
 brew "gcc"
