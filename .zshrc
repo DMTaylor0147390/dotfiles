@@ -7,3 +7,4 @@ alias python=/usr/local/bin/python3
 eval "$(zoxide init zsh)"
 alias dump-to-brewfile="brew bundle dump"
 alias restore-from-brewfile="brew bundle"
+alias get-weather="curl wttr.in"
