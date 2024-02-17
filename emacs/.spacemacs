@@ -78,6 +78,8 @@ values."
    dotspacemacs-additional-packages '(
                                       magit
                                       vterm
+                                      sly
+                                      exec-path-from-shell
                                       ;; workaround for renamed string-edit package (renamed from string-edit to string-edit-at-point leading to
                                       ;; issues in spacemacs, that expects string-edit. the commit is  the last before the rename of the package)
                                       ;; should be removed after the spacemacs issue is resolved (see https://github.com/syl20bnr/spacemacs/issues/15648)
