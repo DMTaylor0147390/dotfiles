@@ -404,6 +404,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+ '(byte-compile-warnings nil)
  '(column-number-mode t)
  '(flycheck-elixir-credo-strict t)
  '(grep-find-ignored-directories
