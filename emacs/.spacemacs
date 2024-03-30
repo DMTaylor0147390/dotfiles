@@ -82,6 +82,7 @@ values."
                                       exec-path-from-shell
                                       pdf-tools
                                       flycheck-clj-kondo
+                                      flycheck-clojure
                                       ;; slime
                                       ;; workaround for renamed string-edit package (renamed from string-edit to string-edit-at-point leading to
                                       ;; issues in spacemacs, that expects string-edit. the commit is  the last before the rename of the package)
