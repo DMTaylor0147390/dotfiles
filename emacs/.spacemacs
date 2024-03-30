@@ -362,7 +362,8 @@ you should place your code here."
   (spacemacs/set-leader-keys "jr" 'sp-raise-sexp)
   (spacemacs/set-leader-keys "jf" 'sp-forward-slurp-sexp)
   (spacemacs/set-leader-keys "jb" 'sp-forward-barf-sexp)
-  (spacemacs/toggle-highlight-current-line-globally-off))
+  (spacemacs/toggle-highlight-current-line-globally-off)
+  (require 'flycheck-clj-kondo))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
