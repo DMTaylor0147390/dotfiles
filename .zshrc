@@ -23,3 +23,4 @@ alias sync-org-to-gdrive="cp -R ~/org/. ~/Google\ Drive/My\ Drive/org/."
 export PATH="$PATH:/Users/derekmtaylor/.local/bin"
 
 export PATH="/Users/derekmtaylor/.cargo/bin:$PATH"
+alias ls=eza
