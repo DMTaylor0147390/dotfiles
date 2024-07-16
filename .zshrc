@@ -24,3 +24,4 @@ export PATH="$PATH:/Users/derekmtaylor/.local/bin"
 
 export PATH="/Users/derekmtaylor/.cargo/bin:$PATH"
 alias ls=eza
+alias lynx="lynx -vikeys"
