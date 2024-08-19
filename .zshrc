@@ -14,7 +14,7 @@ alias new-pedestal-proj="lein new pedestal-service $1"
 alias new-luminus-proj="lein new luminus $1"
 alias install-clj-new="clojure -Ttools install com.github.seancorfield/clj-new '{:git/tag \"v1.2.404\"}' :as clj-new"
 alias new-clojure-kit-proj="clojure -Tclj-new create :template io.github.kit-clj :name $1"
-alias sync-org-to-gdrive="cp -R ~/org/. ~/Google\ Drive/My\ Drive/org/."
+alias sync-org-to-gdrive="rsync -a ~/org/. ~/Google\ Drive/My\ Drive/org/."
 
 # Start in tmux
 # tmux attach
