@@ -434,7 +434,8 @@ This function is called at the very end of Spacemacs initialization."
                                   (lambda nil
                                     (evil-collection-init 'evil-magit))
                                   (lambda nil
-                                    (evil-mode t))))
+                                    (evil-mode t))
+                                  evil-normal-state))
  '(make-backup-files nil)
  '(nov-post-html-render-hook
    '(evil-collection-init evil-collection-nov-setup evil-normal-state))
