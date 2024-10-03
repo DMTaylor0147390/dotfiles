@@ -13,6 +13,7 @@ jobs:
 
       - name: Archive files
         run: |
+          printenv
           sudo apt-get update
           sudo apt-get install zip
           zip -r archive.zip *
