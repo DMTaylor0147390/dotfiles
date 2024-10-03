@@ -11,10 +11,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: google-drive-upload-git-action
-        uses: adityak74/google-drive-upload-git-action@v0.3
-
-
       - name: Archive files
         run: |
           printenv
