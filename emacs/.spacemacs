@@ -62,7 +62,7 @@ values."
      ;; better-defaults
      emacs-lisp
      ;; git
-     markdown
+     ;; markdown
      org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -75,28 +75,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(
-                                      magit
-                                      vterm
-                                      sly
-                                      exec-path-from-shell
-                                      pdf-tools
-                                      flycheck-clj-kondo
-                                      flycheck-clojure
-                                      nov
-                                      ;; slime
-                                      ;; workaround for renamed string-edit package (renamed from string-edit to string-edit-at-point leading to
-                                      ;; issues in spacemacs, that expects string-edit. the commit is  the last before the rename of the package)
-                                      ;; should be removed after the spacemacs issue is resolved (see https://github.com/syl20bnr/spacemacs/issues/15648)
-                                      (string-edit :location (recipe :fetcher github :repo "magnars/string-edit.el" :commit "d7c4b9db6c4987b5c022a9858e6302a4c53aff5f"))
-
-                                      ;; From https://github.com/syl20bnr/spacemacs/issues/10972
-                                      ;; evil-ediff was removed from elpa, but is still referenced in spacemacs-edit layer...
-                                      (evil-ediff :location (recipe :fetcher github :repo "emacs-evil/evil-ediff"))
-                                      (evil-magit :location (recipe
-                                                             :fetcher github
-                                                             :repo "emacs-evil/evil-magit"))
-                                      )
+   dotspacemacs-additional-packages '(magit exec-path-from-shell vterm flycheck-clojure flycheck-clj-kondo)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -143,7 +122,7 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'emacs
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -312,7 +291,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers nil
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -367,8 +346,7 @@ you should place your code here."
   (spacemacs/set-leader-keys "jr" 'sp-raise-sexp)
   (spacemacs/set-leader-keys "jf" 'sp-forward-slurp-sexp)
   (spacemacs/set-leader-keys "jb" 'sp-forward-barf-sexp)
-  (spacemacs/toggle-highlight-current-line-globally-off)
-  (require 'flycheck-clj-kondo))
+  (spacemacs/toggle-highlight-current-line-globally-off))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -387,7 +365,7 @@ you should place your code here."
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
  '(package-selected-packages
-   '(vterm git-commit with-editor transient csv-mode sql-indent markdown-toc mmm-mode markdown-mode gh-md inflections cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a wgrep smex ivy-hydra counsel-projectile counsel swiper ivy tide web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode vi-tilde-fringe open-junk-file ob-elixir lorem-ipsum link-hint helm-flx flycheck-credo flycheck highlight evil-indent-plus evil-exchange evil-ediff column-enforce-mode clean-aindent-mode company elixir-mode ws-butler winum volatile-highlights uuidgen toc-org spaceline powerline restart-emacs request popwin persp-mode pcre2el paradox spinner org-bullets neotree move-text macrostep linum-relative indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-iedit-state iedit evil-escape evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word bind-map bind-key auto-highlight-symbol auto-compile packed adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async which-key aggressive-indent rainbow-delimiters yas-minor-mode yasnippets use-package typescript-mode cider-hydra clj-refactor yaml-mode paredit rjsx-mode alchemist find-file-in-project magit))
+   '(git-commit with-editor transient csv-mode sql-indent markdown-toc mmm-mode markdown-mode gh-md inflections cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a wgrep smex ivy-hydra counsel-projectile counsel swiper ivy tide web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode vi-tilde-fringe open-junk-file ob-elixir lorem-ipsum link-hint helm-flx flycheck-credo flycheck highlight evil-indent-plus evil-exchange evil-ediff column-enforce-mode clean-aindent-mode company elixir-mode ws-butler winum volatile-highlights uuidgen toc-org spaceline powerline restart-emacs request popwin persp-mode pcre2el paradox spinner org-bullets neotree move-text macrostep linum-relative indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-iedit-state iedit evil-escape evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word bind-map bind-key auto-highlight-symbol auto-compile packed adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async which-key aggressive-indent rainbow-delimiters yas-minor-mode yasnippets use-package typescript-mode cider-hydra clj-refactor yaml-mode paredit rjsx-mode alchemist find-file-in-project magit))
  '(ring-bell-function 'ignore)
  '(safe-local-variable-values
    '((cider-repl-init-code "(dev)")
@@ -413,37 +391,20 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
- '(byte-compile-warnings nil)
  '(column-number-mode t)
- '(evil-collection-mode-list
-   '((buff-menu "buff-menu")
-     eww dired quickrun ediff magit nov alchemist))
  '(flycheck-elixir-credo-strict t)
  '(grep-find-ignored-directories
    '("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "_build" "deps"))
- '(holy-mode nil)
- '(ignored-local-variable-values
-   '((cider-shadow-watched-builds "platform")
-     (cider-shadow-default-options . "platform")
-     (cider-preferred-build-tool . shadow-cljs)
-     (cider-default-cljs-repl . shadow)))
+ '(ignored-local-variable-values '((cider-repl-display-help-banner)))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
- '(magit-mode-hook
-   '(magit-load-config-extensions evil-collection-init
-                                  (lambda nil
-                                    (evil-collection-init 'evil-magit))
-                                  (lambda nil
-                                    (evil-mode t))
-                                  evil-normal-state))
+ '(initial-scratch-message
+   ";; In order to have what you really want, you must first be who you really are")
  '(make-backup-files nil)
- '(nov-post-html-render-hook
-   '(evil-collection-init evil-collection-nov-setup evil-normal-state))
  '(org-agenda-files
-   '("/Users/derekmtaylor/org/5-problems/5-problems-05-09.org" "/Users/derekmtaylor/org/5-problems/5-problems-2024-04-29.org" "/Users/derekmtaylor/org/5-problems/5-problems-2024-04-30.org" "/Users/derekmtaylor/org/5-problems/5-problems-2024-05-01.org" "/Users/derekmtaylor/org/5-problems/5-problems-2024-05-02.org" "/Users/derekmtaylor/org/5-problems/5-problems-2024-05-03.org" "/Users/derekmtaylor/org/5-problems/5-problems-2024-05-07.org" "/Users/derekmtaylor/org/5-problems/5-problems-2024-05-08.org" "/Users/derekmtaylor/org/5-problems/5-problems-2024-05-09.org" "/Users/derekmtaylor/org/5-problems/5-problems-2024-05-10.org" "/Users/derekmtaylor/org/5-problems/5-problems-previous.org" "/Users/derekmtaylor/org/matthew-homework/20240610-homework.org" "/Users/derekmtaylor/org/matthew-homework/20240617-homework.org" "/Users/derekmtaylor/org/matthew-homework/20240624-homework.org" "/Users/derekmtaylor/org/matthew-homework/20240701-homework.org" "/Users/derekmtaylor/org/matthew-homework/20240708-homework.org" "/Users/derekmtaylor/org/matthew-homework/20240729-homework.org" "/Users/derekmtaylor/org/matthew-homework/20240805-homework.org" "/Users/derekmtaylor/org/matthew-homework/20240812-homework.org" "/Users/derekmtaylor/org/matthew-homework/20240826-homework.org" "/Users/derekmtaylor/org/matthew-homework/matthew-homework-submission-four.org" "/Users/derekmtaylor/org/matthew-homework/matthew-homework-submission-postmortem.org" "/Users/derekmtaylor/org/matthew-homework/matthew-homework-submission-three.org" "/Users/derekmtaylor/org/matthew-homework/matthew-homework-submission-two.org" "/Users/derekmtaylor/org/matthew-homework/matthew-homework-submission.org" "/Users/derekmtaylor/org/misc/20240529-food.org" "/Users/derekmtaylor/org/misc/20240610-weekly-goals.org" "/Users/derekmtaylor/org/misc/20240617-weekly-goals.org" "/Users/derekmtaylor/org/misc/20240715-eating-notes.org" "/Users/derekmtaylor/org/misc/approx-comp-notes.org" "/Users/derekmtaylor/org/misc/april-2024-spending-notes.org" "/Users/derekmtaylor/org/misc/busy-worker-notes.org" "/Users/derekmtaylor/org/misc/cosmetic-shopping-list.org" "/Users/derekmtaylor/org/misc/dieting-notes.org" "/Users/derekmtaylor/org/misc/dsa-todo-followup-05132024.org" "/Users/derekmtaylor/org/misc/family-photo-archive-notes.org" "/Users/derekmtaylor/org/misc/headway-cheat-sheet.org" "/Users/derekmtaylor/org/misc/headway-r1-interview-notes.org" "/Users/derekmtaylor/org/misc/interview-prep.org" "/Users/derekmtaylor/org/misc/kadane-algorithm-notes.org" "/Users/derekmtaylor/org/misc/kelsey-birthday.org" "/Users/derekmtaylor/org/misc/miami-apartment-search.org" "/Users/derekmtaylor/org/misc/mock-sd-interview.org" "/Users/derekmtaylor/org/misc/nudge-cheatsheet.org" "/Users/derekmtaylor/org/misc/real-time-leaderboard-case-notes.org" "/Users/derekmtaylor/org/misc/rh-team-bonding-notes.org" "/Users/derekmtaylor/org/misc/rolodex.org" "/Users/derekmtaylor/org/misc/skiena-algorithm-design-manual-notes.org" "/Users/derekmtaylor/org/misc/summer-2024-goals.org" "/Users/derekmtaylor/org/misc/system-design-primer-notes.org" "/Users/derekmtaylor/org/misc/whalesync-cheat-sheet.org" "/Users/derekmtaylor/org/tdls/03252024-tdl.org" "/Users/derekmtaylor/org/tdls/03262024-tdl.org" "/Users/derekmtaylor/org/tdls/03272024-tdl.org" "/Users/derekmtaylor/org/tdls/04012024-tdl.org" "/Users/derekmtaylor/org/tdls/04092024-tdl.org" "/Users/derekmtaylor/org/tdls/04102024-tdl.org" "/Users/derekmtaylor/org/tdls/04112024-tdl.org" "/Users/derekmtaylor/org/tdls/04122024-tdl.org" "/Users/derekmtaylor/org/tdls/04132024-tdl.org" "/Users/derekmtaylor/org/tdls/04162024-tdl.org" "/Users/derekmtaylor/org/tdls/04172024-tdl.org" "/Users/derekmtaylor/org/tdls/04182024-tdl.org" "/Users/derekmtaylor/org/tdls/04192024-tdl.org" "/Users/derekmtaylor/org/tdls/04212024-tdl.org" "/Users/derekmtaylor/org/tdls/04222024-tdl.org" "/Users/derekmtaylor/org/tdls/04232024-tdl.org" "/Users/derekmtaylor/org/tdls/04242024-tdl.org" "/Users/derekmtaylor/org/tdls/04252024-tdl.org" "/Users/derekmtaylor/org/tdls/04262024-tdl.org" "/Users/derekmtaylor/org/tdls/04272024-tdl.org" "/Users/derekmtaylor/org/tdls/04282024-tdl.org" "/Users/derekmtaylor/org/tdls/04292024-tdl.org" "/Users/derekmtaylor/org/tdls/04302024-tdl.org" "/Users/derekmtaylor/org/tdls/05012024-tdl.org" "/Users/derekmtaylor/org/tdls/05022024-tdl.org" "/Users/derekmtaylor/org/tdls/05032024-tdl.org" "/Users/derekmtaylor/org/tdls/05042024-tdl.org" "/Users/derekmtaylor/org/tdls/05052024-tdl.org" "/Users/derekmtaylor/org/tdls/05062024-tdl.org" "/Users/derekmtaylor/org/tdls/05072024-tdl.org" "/Users/derekmtaylor/org/tdls/05082024-tdl.org" "/Users/derekmtaylor/org/tdls/05092024-tdl.org" "/Users/derekmtaylor/org/tdls/05102024-tdl.org" "/Users/derekmtaylor/org/tdls/0512024-tdl.org" "/Users/derekmtaylor/org/tdls/12032023-tdl.org" "/Users/derekmtaylor/org/tdls/12042023-tdl.org" "/Users/derekmtaylor/org/tdls/12052023-tdl.org" "/Users/derekmtaylor/org/tdls/12062023-tdl.org" "/Users/derekmtaylor/org/tdls/12072023-tdl.org" "/Users/derekmtaylor/org/tdls/12082023-tdl.org" "/Users/derekmtaylor/org/tdls/12092023-tdl.org" "/Users/derekmtaylor/org/tdls/12112023-agenda.org" "/Users/derekmtaylor/org/tdls/12112023-weekly-agenda.org" "/Users/derekmtaylor/org/tdls/20240514-tdl.org" "/Users/derekmtaylor/org/tdls/20240515-tdl.org" "/Users/derekmtaylor/org/tdls/20240516-tdl.org" "/Users/derekmtaylor/org/tdls/20240517-tdl.org" "/Users/derekmtaylor/org/tdls/20240518-tdl.org" "/Users/derekmtaylor/org/tdls/20240519-tdl.org" "/Users/derekmtaylor/org/tdls/20240520-tdl.org" "/Users/derekmtaylor/org/tdls/20240528-tdl.org" "/Users/derekmtaylor/org/tdls/20240529-tdl.org" "/Users/derekmtaylor/org/tdls/20240610-tdl.org" "/Users/derekmtaylor/org/tdls/20240617-tdl.org" "/Users/derekmtaylor/org/tdls/20240624-tdl.org" "/Users/derekmtaylor/org/tdls/20240625-tdl.org" "/Users/derekmtaylor/org/tdls/20240627-tdl.org" "/Users/derekmtaylor/org/tdls/20240701-tdl.org" "/Users/derekmtaylor/org/tdls/20240826-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20240902-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/global-tdl.org" "/Users/derekmtaylor/org/tdls/miami-tdl.org" "/Users/derekmtaylor/org/tdls/tdl-for-11012023.org" "/Users/derekmtaylor/org/tdls/tdl-for-11022023.org" "/Users/derekmtaylor/org/tdls/tdl-for-11132023.org" "/Users/derekmtaylor/org/work/integration-notes/limosys/limosys-info.org" "/Users/derekmtaylor/org/work/retrospectives/20240819-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20240826-week-of-retrospective.org" "/Users/derekmtaylor/org/work/12042023-tdl.org" "/Users/derekmtaylor/org/work/12052023-tdl.org" "/Users/derekmtaylor/org/work/12062023-tdl.org" "/Users/derekmtaylor/org/work/12072023-tdl.org" "/Users/derekmtaylor/org/work/12082023-tdl.org" "/Users/derekmtaylor/org/work/20240819-work-tdl.org" "/Users/derekmtaylor/org/work/20240820-work-tdl.org" "/Users/derekmtaylor/org/work/20240821-work-tdl.org" "/Users/derekmtaylor/org/work/20240822-work-tdl.org" "/Users/derekmtaylor/org/work/20240823-work-tdl.org" "/Users/derekmtaylor/org/work/20240826-work-tdl.org" "/Users/derekmtaylor/org/work/20240827-work-tdl.org" "/Users/derekmtaylor/org/work/20240828-work-tdl.org" "/Users/derekmtaylor/org/work/20240829-work-tdl.org" "/Users/derekmtaylor/org/work/20240830-work-tdl.org" "/Users/derekmtaylor/org/work/20240903-work-tdl.org" "/Users/derekmtaylor/org/work/additional-alarms-stuff.org" "/Users/derekmtaylor/org/work/alarms-meeting-notes.org" "/Users/derekmtaylor/org/work/backlog.org" "/Users/derekmtaylor/org/work/brian-tts-questions.org" "/Users/derekmtaylor/org/work/compliance-notes.org" "/Users/derekmtaylor/org/work/named-features-notes.org" "/Users/derekmtaylor/org/work/remaining-alarms-logic.org" "/Users/derekmtaylor/org/work/rh-eng-team-outing-notes.org" "/Users/derekmtaylor/org/work/tdl-for-11012023.org" "/Users/derekmtaylor/org/work/tdl-for-11022023.org" "/Users/derekmtaylor/org/work/tdl-for-11132023.org" "/Users/derekmtaylor/org/work/trip-telemetry-accomplishments.org" "/Users/derekmtaylor/org/work/work-global-tdl.org" "/Users/derekmtaylor/org/backlog.org" "/Users/derekmtaylor/org/refile.org"))
+   '("/Users/derekmtaylor-ridehealth/org/5-problems/5-problems-05-09.org" "/Users/derekmtaylor-ridehealth/org/5-problems/5-problems-2024-04-29.org" "/Users/derekmtaylor-ridehealth/org/5-problems/5-problems-2024-04-30.org" "/Users/derekmtaylor-ridehealth/org/5-problems/5-problems-2024-05-01.org" "/Users/derekmtaylor-ridehealth/org/5-problems/5-problems-2024-05-02.org" "/Users/derekmtaylor-ridehealth/org/5-problems/5-problems-2024-05-03.org" "/Users/derekmtaylor-ridehealth/org/5-problems/5-problems-2024-05-07.org" "/Users/derekmtaylor-ridehealth/org/5-problems/5-problems-2024-05-08.org" "/Users/derekmtaylor-ridehealth/org/5-problems/5-problems-2024-05-09.org" "/Users/derekmtaylor-ridehealth/org/5-problems/5-problems-2024-05-10.org" "/Users/derekmtaylor-ridehealth/org/5-problems/5-problems-previous.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/20240610-homework.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/20240617-homework.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/20240624-homework.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/20240701-homework.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/20240708-homework.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/20240729-homework.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/20240805-homework.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/20240812-homework.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/matthew-homework-submission-four.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/matthew-homework-submission-postmortem.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/matthew-homework-submission-three.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/matthew-homework-submission-two.org" "/Users/derekmtaylor-ridehealth/org/matthew-homework/matthew-homework-submission.org" "/Users/derekmtaylor-ridehealth/org/misc/20240529-food.org" "/Users/derekmtaylor-ridehealth/org/misc/20240610-weekly-goals.org" "/Users/derekmtaylor-ridehealth/org/misc/20240617-weekly-goals.org" "/Users/derekmtaylor-ridehealth/org/misc/20240715-eating-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/approx-comp-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/april-2024-spending-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/busy-worker-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/dieting-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/dsa-todo-followup-05132024.org" "/Users/derekmtaylor-ridehealth/org/misc/headway-cheat-sheet.org" "/Users/derekmtaylor-ridehealth/org/misc/headway-r1-interview-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/interview-prep.org" "/Users/derekmtaylor-ridehealth/org/misc/kadane-algorithm-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/kelsey-birthday.org" "/Users/derekmtaylor-ridehealth/org/misc/miami-apartment-search.org" "/Users/derekmtaylor-ridehealth/org/misc/mock-sd-interview.org" "/Users/derekmtaylor-ridehealth/org/misc/real-time-leaderboard-case-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/rh-team-bonding-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/rolodex.org" "/Users/derekmtaylor-ridehealth/org/misc/skiena-algorithm-design-manual-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/summer-2024-goals.org" "/Users/derekmtaylor-ridehealth/org/misc/system-design-primer-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/training-notes.org" "/Users/derekmtaylor-ridehealth/org/misc/whalesync-cheat-sheet.org" "/Users/derekmtaylor-ridehealth/org/tdls/03252024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/03262024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/03272024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04012024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04092024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04102024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04112024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04122024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04132024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04162024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04172024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04182024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04192024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04212024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04222024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04232024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04242024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04252024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04262024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04272024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04282024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04292024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/04302024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/05012024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/05022024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/05032024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/05042024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/05052024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/05062024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/05072024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/05082024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/05092024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/05102024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/0512024-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/12032023-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/12042023-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/12052023-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/12062023-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/12072023-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/12082023-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/12092023-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/12112023-agenda.org" "/Users/derekmtaylor-ridehealth/org/tdls/12112023-weekly-agenda.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240514-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240515-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240516-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240517-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240518-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240519-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240520-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240528-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240529-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240610-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240617-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240624-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240625-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240627-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/20240701-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/global-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/miami-tdl.org" "/Users/derekmtaylor-ridehealth/org/tdls/tdl-for-11012023.org" "/Users/derekmtaylor-ridehealth/org/tdls/tdl-for-11022023.org" "/Users/derekmtaylor-ridehealth/org/tdls/tdl-for-11132023.org" "/Users/derekmtaylor-ridehealth/org/work/12042023-tdl.org" "/Users/derekmtaylor-ridehealth/org/work/12052023-tdl.org" "/Users/derekmtaylor-ridehealth/org/work/12062023-tdl.org" "/Users/derekmtaylor-ridehealth/org/work/12072023-tdl.org" "/Users/derekmtaylor-ridehealth/org/work/12082023-tdl.org" "/Users/derekmtaylor-ridehealth/org/work/20240819-work-tdl.org" "/Users/derekmtaylor-ridehealth/org/work/20240820-work-tdl.org" "/Users/derekmtaylor-ridehealth/org/work/20240821-work-tdl.org" "/Users/derekmtaylor-ridehealth/org/work/20240822-work-tdl.org" "/Users/derekmtaylor-ridehealth/org/work/additional-alarms-stuff.org" "/Users/derekmtaylor-ridehealth/org/work/alarms-meeting-notes.org" "/Users/derekmtaylor-ridehealth/org/work/backlog.org" "/Users/derekmtaylor-ridehealth/org/work/brian-tts-questions.org" "/Users/derekmtaylor-ridehealth/org/work/compliance-notes.org" "/Users/derekmtaylor-ridehealth/org/work/named-features-notes.org" "/Users/derekmtaylor-ridehealth/org/work/remaining-alarms-logic.org" "/Users/derekmtaylor-ridehealth/org/work/rh-eng-team-outing-notes.org" "/Users/derekmtaylor-ridehealth/org/work/tdl-for-11012023.org" "/Users/derekmtaylor-ridehealth/org/work/tdl-for-11022023.org" "/Users/derekmtaylor-ridehealth/org/work/tdl-for-11132023.org" "/Users/derekmtaylor-ridehealth/org/work/trip-telemetry-accomplishments.org" "/Users/derekmtaylor-ridehealth/org/backlog.org" "/Users/derekmtaylor-ridehealth/org/refile.org"))
  '(org-babel-load-languages
    '((elixir . t)
-     (scheme . t)
      (js . t)
      (shell . t)
      (clojure . t)
@@ -452,21 +413,77 @@ This function is called at the very end of Spacemacs initialization."
      (python . t)
      (groovy . t)
      (emacs-lisp . t)))
- '(org-fold-core-style 'overlays)
  '(package-selected-packages
-   '(nov vterm git-commit with-editor transient csv-mode sql-indent markdown-toc mmm-mode markdown-mode gh-md inflections cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a wgrep smex ivy-hydra counsel-projectile counsel swiper ivy tide web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode vi-tilde-fringe open-junk-file ob-elixir lorem-ipsum link-hint helm-flx flycheck-credo flycheck highlight evil-indent-plus evil-exchange evil-ediff column-enforce-mode clean-aindent-mode company elixir-mode ws-butler winum volatile-highlights uuidgen toc-org spaceline powerline restart-emacs request popwin persp-mode pcre2el paradox spinner org-bullets neotree move-text macrostep linum-relative indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-iedit-state iedit evil-escape evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word bind-map bind-key auto-highlight-symbol auto-compile packed adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async which-key aggressive-indent rainbow-delimiters yas-minor-mode yasnippets use-package typescript-mode cider-hydra clj-refactor yaml-mode paredit rjsx-mode alchemist find-file-in-project magit))
+   '(nov ssh wttrin evil-collection selectric-mode flycheck-clj-kondo vterm flycheck-clojure git-commit with-editor transient csv-mode sql-indent markdown-toc mmm-mode markdown-mode gh-md inflections cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a wgrep smex ivy-hydra counsel-projectile counsel swiper ivy tide web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode vi-tilde-fringe open-junk-file ob-elixir lorem-ipsum link-hint helm-flx flycheck-credo flycheck highlight evil-indent-plus evil-exchange evil-ediff column-enforce-mode clean-aindent-mode company elixir-mode ws-butler winum volatile-highlights uuidgen toc-org spaceline powerline restart-emacs request popwin persp-mode pcre2el paradox spinner org-bullets neotree move-text macrostep linum-relative indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-iedit-state iedit evil-escape evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word bind-map bind-key auto-highlight-symbol auto-compile packed adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async which-key aggressive-indent rainbow-delimiters yas-minor-mode yasnippets use-package typescript-mode cider-hydra clj-refactor yaml-mode paredit rjsx-mode alchemist find-file-in-project))
  '(ring-bell-function 'ignore)
  '(safe-local-variable-values
-   '((cider-repl-init-code "(dev)")
+   '((cider-clojure-cli-aliases . ":dev:test")
+     (cider-clojure-cli-aliases . ":test")
+     (cider-shadow-watched-builds "platform")
+     (cider-shadow-default-options . "platform")
+     (cider-preferred-build-tool . shadow-cljs)
+     (cider-default-cljs-repl . shadow)
+     (cider-default-cljs-repl . custom)
+     (cider-clojure-cli-aliases . ":main")
+     (cider-format-code-options
+      ("indents"
+       (("After"
+         (("inner" 0)))
+        ("Given"
+         (("inner" 0)))
+        ("Then"
+         (("inner" 0)))
+        ("When"
+         (("inner" 0)))
+        ("are"
+         (("inner" 0)))
+        ("checking"
+         (("inner" 0)))
+        ("derivefn"
+         (("inner" 0)))
+        ("derivefn*"
+         (("inner" 0)))
+        ("rh.utils.maputils/derivefn"
+         (("inner" 0)))
+        ("rh.utils.maputils/derivefn*"
+         (("inner" 0)))
+        ("m/search"
+         (("inner" 0)))
+        ("sp/recursive-path"
+         (("block" 2))))
+       ("alias-map"
+        (("m" "meander.epsilon")
+         ("sp" "com.rpl.specter")))))
+     (eval progn
+           (make-variable-buffer-local 'cider-jack-in-nrepl-middlewares)
+           (add-to-list 'cider-jack-in-nrepl-middlewares "shadow.cljs.devtools.server.nrepl/middleware"))
+     (cider-format-code-options
+      ("indents"
+       (("GET"
+         (("block" 0)))
+        ("DELETE"
+         (("block" 0)))
+        ("POST"
+         (("block" 0)))
+        ("PUT"
+         (("block" 0))))))
+     (cider-repl-init-code "
+            (in-ns 'user)
+            (or (when-let [dev (resolve 'dev)] (dev))
+                (when-let [console (resolve 'console)] (console)))
+         ")
+     (cider-clojure-cli-aliases . ":dev")
+     (cider-preferred-build-tool . clojure-cli)
+     (cider-repl-init-code "(dev)")
      (cider-ns-refresh-after-fn . "dev-extras/resume")
      (cider-ns-refresh-before-fn . "dev-extras/suspend")
      (elixir-enable-compilation-checking . t)
-     (elixir-enable-compilation-checking))))
+     (elixir-enable-compilation-checking)))
+ '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t)
- '(org-document-title ((t (:foreground "#f8f6f2" :weight normal :height 1.0 :family "sans")))))
+ '(highlight-parentheses-highlight ((nil (:weight ultra-bold)))))
 )
