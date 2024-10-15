@@ -10,3 +10,10 @@
 [submodule "new-emacs-config"]
     path = new-emacs-config
       url = https://github.com/DMTaylor0147390/spacemacs
+[submodule "tmux-config"]
+    path = tmux/config
+      url = https://github.com/dreamsofcode-io/tmux
+
+[submodule "tmux/config"]
+	path = tmux/config
+	url = https://github.com/dreamsofcode-io/tmux
