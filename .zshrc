@@ -25,3 +25,7 @@ export PATH="$PATH:/Users/derekmtaylor/.local/bin"
 export PATH="/Users/derekmtaylor/.cargo/bin:$PATH"
 alias ls=eza
 alias lynx="lynx -vikeys"
+# Golang environment variables
+export GOROOT=$(brew --prefix go)/libexec
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
