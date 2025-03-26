@@ -388,11 +388,11 @@ This function is called at the very end of Spacemacs initialization."
    '(byte-compile-warnings nil)
    '(column-number-mode t)
    '(evil-collection-mode-list
-     '((buff-menu "buff-menu")
-       eww dired quickrun ediff magit nov alchemist))
+     '((buff-menu "buff-menu") eww dired quickrun ediff magit nov alchemist))
    '(flycheck-elixir-credo-strict t)
    '(grep-find-ignored-directories
-     '("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "_build" "deps"))
+     '("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs"
+       "{arch}" "_build" "deps"))
    '(holy-mode nil)
    '(ignored-local-variable-values
      '((cider-shadow-watched-builds "platform")
@@ -403,30 +403,187 @@ This function is called at the very end of Spacemacs initialization."
    '(inhibit-startup-screen t)
    '(magit-mode-hook
      '(magit-load-config-extensions evil-collection-init
-                                    (lambda nil
-                                      (evil-collection-init 'evil-magit))
-                                    (lambda nil
-                                      (evil-mode t))
-                                    evil-normal-state))
+                                    (lambda nil (evil-collection-init 'evil-magit))
+                                    (lambda nil (evil-mode t)) evil-normal-state))
    '(make-backup-files nil)
    '(nov-post-html-render-hook
      '(evil-collection-init evil-collection-nov-setup evil-normal-state))
    '(org-agenda-files
-     '("/Users/derekmtaylor/org/2025-resolutions.org" "/Users/derekmtaylor/org/backlog.org" "/Users/derekmtaylor/org/grocery.org" "/Users/derekmtaylor/org/inbox.org" "/Users/derekmtaylor/org/init.org" "/Users/derekmtaylor/org/refile.org" "/Users/derekmtaylor/org/schedule.org" "/Users/derekmtaylor/org/work/alarms/additional-alarms-stuff.org" "/Users/derekmtaylor/org/work/alarms/alarms-meeting-notes.org" "/Users/derekmtaylor/org/work/alarms/alarms-notes-20241024.org" "/Users/derekmtaylor/org/work/alarms/alarms-notes-20241212.org" "/Users/derekmtaylor/org/work/alarms/alarms-notes-20241213.org" "/Users/derekmtaylor/org/work/alarms/alarms-notes-20241216.org" "/Users/derekmtaylor/org/work/alarms/cancelled-then-completed-notes.org" "/Users/derekmtaylor/org/work/alarms/drive-thru-one-tp.org" "/Users/derekmtaylor/org/work/alarms/fivenine-extension-postmortem.org" "/Users/derekmtaylor/org/work/alarms/late-dispatch.org" "/Users/derekmtaylor/org/work/alarms/remaining-alarms-logic.org" "/Users/derekmtaylor/org/work/alarms/stranding-risk.org" "/Users/derekmtaylor/org/work/alarms/unavailable-risk-stuck-in-scheduling-alarm-notes.org" "/Users/derekmtaylor/org/work/integration-notes/limosys/limosys-info.org" "/Users/derekmtaylor/org/work/integration-notes/limosys/limosys-testing-notes.org" "/Users/derekmtaylor/org/work/integration-notes/limosys/post-mortem-notes.org" "/Users/derekmtaylor/org/work/integration-notes/social-care-networks/initial-notes.org" "/Users/derekmtaylor/org/work/retrospectives/20240819-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20240826-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20240902-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20240909-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20240923-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241007-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241014-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241021-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241028-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241104-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241111-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241118-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241125-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241202-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241209-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241216-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241223-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20241230-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20250106-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20250113-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20250120-week-of-retrospective.org" "/Users/derekmtaylor/org/work/retrospectives/20250127-week-of-retrospective.org" "/Users/derekmtaylor/org/work/rh-chat/rh-chat-notes.org" "/Users/derekmtaylor/org/work/12082023-tdl.org" "/Users/derekmtaylor/org/work/20240819-work-tdl.org" "/Users/derekmtaylor/org/work/20240820-work-tdl.org" "/Users/derekmtaylor/org/work/20240821-work-tdl.org" "/Users/derekmtaylor/org/work/20240822-work-tdl.org" "/Users/derekmtaylor/org/work/20240823-work-tdl.org" "/Users/derekmtaylor/org/work/20240826-work-tdl.org" "/Users/derekmtaylor/org/work/20240827-work-tdl.org" "/Users/derekmtaylor/org/work/20240828-work-tdl.org" "/Users/derekmtaylor/org/work/20240829-work-tdl.org" "/Users/derekmtaylor/org/work/20240830-work-tdl.org" "/Users/derekmtaylor/org/work/20240903-work-tdl.org" "/Users/derekmtaylor/org/work/20240904-work-tdl.org" "/Users/derekmtaylor/org/work/20240905-work-tdl.org" "/Users/derekmtaylor/org/work/20240906-work-tdl.org" "/Users/derekmtaylor/org/work/20240909-work-tdl.org" "/Users/derekmtaylor/org/work/20240910-work-tdl.org" "/Users/derekmtaylor/org/work/20240911-work-tdl.org" "/Users/derekmtaylor/org/work/20240912-work-tdl.org" "/Users/derekmtaylor/org/work/20240913-work-tdl.org" "/Users/derekmtaylor/org/work/brian-tts-questions.org" "/Users/derekmtaylor/org/work/compliance-notes.org" "/Users/derekmtaylor/org/work/deadhead-notes.org" "/Users/derekmtaylor/org/work/fleet-sync-problems.org" "/Users/derekmtaylor/org/work/goals-for-2025.org" "/Users/derekmtaylor/org/work/multiload-notes.org" "/Users/derekmtaylor/org/work/named-features-notes.org" "/Users/derekmtaylor/org/work/potential-platform-improvements.org" "/Users/derekmtaylor/org/work/useful-snippets.org" "/Users/derekmtaylor/org/work/work-global-tdl.org" "/Users/derekmtaylor/org/tdls/20240826-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20240902-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20240909-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20240916-tdl.org" "/Users/derekmtaylor/org/tdls/20240916-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20240917-tdl.org" "/Users/derekmtaylor/org/tdls/20240918-tdl.org" "/Users/derekmtaylor/org/tdls/20240919-tdl.org" "/Users/derekmtaylor/org/tdls/20240920-tdl.org" "/Users/derekmtaylor/org/tdls/20240923-tdl.org" "/Users/derekmtaylor/org/tdls/20240923-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20240924-tdl.org" "/Users/derekmtaylor/org/tdls/20240925-tdl.org" "/Users/derekmtaylor/org/tdls/20240926-tdl.org" "/Users/derekmtaylor/org/tdls/20240927-tdl.org" "/Users/derekmtaylor/org/tdls/20240930-tdl.org" "/Users/derekmtaylor/org/tdls/20240930-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20241001-tdl.org" "/Users/derekmtaylor/org/tdls/20241002-tdl.org" "/Users/derekmtaylor/org/tdls/20241003-tdl.org" "/Users/derekmtaylor/org/tdls/20241004-tdl.org" "/Users/derekmtaylor/org/tdls/20241005-tdl.org" "/Users/derekmtaylor/org/tdls/20241007-tdl.org" "/Users/derekmtaylor/org/tdls/20241007-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20241008-tdl.org" "/Users/derekmtaylor/org/tdls/20241009-tdl.org" "/Users/derekmtaylor/org/tdls/20241010-tdl.org" "/Users/derekmtaylor/org/tdls/20241011-tdl.org" "/Users/derekmtaylor/org/tdls/20241014-tdl.org" "/Users/derekmtaylor/org/tdls/20241014-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20241015-tdl.org" "/Users/derekmtaylor/org/tdls/20241016-tdl.org" "/Users/derekmtaylor/org/tdls/20241017-tdl.org" "/Users/derekmtaylor/org/tdls/20241018-tdl.org" "/Users/derekmtaylor/org/tdls/20241019-tdl.org" "/Users/derekmtaylor/org/tdls/20241020-tdl.org" "/Users/derekmtaylor/org/tdls/20241021-tdl.org" "/Users/derekmtaylor/org/tdls/20241021-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20241022-tdl.org" "/Users/derekmtaylor/org/tdls/20241023-tdl.org" "/Users/derekmtaylor/org/tdls/20241024-tdl.org" "/Users/derekmtaylor/org/tdls/20241025-tdl.org" "/Users/derekmtaylor/org/tdls/20241028-tdl.org" "/Users/derekmtaylor/org/tdls/20241028-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20241029-tdl.org" "/Users/derekmtaylor/org/tdls/20241030-tdl.org" "/Users/derekmtaylor/org/tdls/20241031-tdl.org" "/Users/derekmtaylor/org/tdls/20241101-tdl.org" "/Users/derekmtaylor/org/tdls/20241102-tdl.org" "/Users/derekmtaylor/org/tdls/20241104-tdl.org" "/Users/derekmtaylor/org/tdls/20241104-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20241106-tdl.org" "/Users/derekmtaylor/org/tdls/20241107-tdl.org" "/Users/derekmtaylor/org/tdls/20241108-tdl.org" "/Users/derekmtaylor/org/tdls/20241111-tdl.org" "/Users/derekmtaylor/org/tdls/20241111-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20241112-tdl.org" "/Users/derekmtaylor/org/tdls/20241113-tdl.org" "/Users/derekmtaylor/org/tdls/20241114-tdl.org" "/Users/derekmtaylor/org/tdls/20241118-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/20241119-tdl.org" "/Users/derekmtaylor/org/tdls/20241120-tdl.org" "/Users/derekmtaylor/org/tdls/20241122-tdl.org" "/Users/derekmtaylor/org/tdls/20241209-weekly-tdl.org" "/Users/derekmtaylor/org/tdls/global-tdl.org" "/Users/derekmtaylor/org/tdls/miami-tdl.org"))
+     '("/Users/derekmtaylor/org/inbox.org"
+       "/Users/derekmtaylor/org/2025-resolutions.org"
+       "/Users/derekmtaylor/org/backlog.org" "/Users/derekmtaylor/org/grocery.org"
+       "/Users/derekmtaylor/org/init.org" "/Users/derekmtaylor/org/refile.org"
+       "/Users/derekmtaylor/org/schedule.org"
+       "/Users/derekmtaylor/org/work/alarms/additional-alarms-stuff.org"
+       "/Users/derekmtaylor/org/work/alarms/alarms-meeting-notes.org"
+       "/Users/derekmtaylor/org/work/alarms/alarms-notes-20241024.org"
+       "/Users/derekmtaylor/org/work/alarms/alarms-notes-20241212.org"
+       "/Users/derekmtaylor/org/work/alarms/alarms-notes-20241213.org"
+       "/Users/derekmtaylor/org/work/alarms/alarms-notes-20241216.org"
+       "/Users/derekmtaylor/org/work/alarms/cancelled-then-completed-notes.org"
+       "/Users/derekmtaylor/org/work/alarms/drive-thru-one-tp.org"
+       "/Users/derekmtaylor/org/work/alarms/fivenine-extension-postmortem.org"
+       "/Users/derekmtaylor/org/work/alarms/late-dispatch.org"
+       "/Users/derekmtaylor/org/work/alarms/remaining-alarms-logic.org"
+       "/Users/derekmtaylor/org/work/alarms/stranding-risk.org"
+       "/Users/derekmtaylor/org/work/alarms/unavailable-risk-stuck-in-scheduling-alarm-notes.org"
+       "/Users/derekmtaylor/org/work/integration-notes/limosys/limosys-info.org"
+       "/Users/derekmtaylor/org/work/integration-notes/limosys/limosys-testing-notes.org"
+       "/Users/derekmtaylor/org/work/integration-notes/limosys/post-mortem-notes.org"
+       "/Users/derekmtaylor/org/work/integration-notes/social-care-networks/initial-notes.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20240819-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20240826-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20240902-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20240909-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20240923-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241007-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241014-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241021-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241028-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241104-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241111-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241118-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241125-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241202-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241209-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241216-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241223-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20241230-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20250106-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20250113-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20250120-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20250127-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/retrospectives/20250203-week-of-retrospective.org"
+       "/Users/derekmtaylor/org/work/rh-chat/rh-chat-notes.org"
+       "/Users/derekmtaylor/org/work/12082023-tdl.org"
+       "/Users/derekmtaylor/org/work/20240819-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240820-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240821-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240822-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240823-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240826-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240827-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240828-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240829-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240830-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240903-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240904-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240905-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240906-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240909-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240910-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240911-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240912-work-tdl.org"
+       "/Users/derekmtaylor/org/work/20240913-work-tdl.org"
+       "/Users/derekmtaylor/org/work/brian-tts-questions.org"
+       "/Users/derekmtaylor/org/work/compliance-notes.org"
+       "/Users/derekmtaylor/org/work/deadhead-notes.org"
+       "/Users/derekmtaylor/org/work/fleet-sync-problems.org"
+       "/Users/derekmtaylor/org/work/goals-for-2025.org"
+       "/Users/derekmtaylor/org/work/multiload-notes.org"
+       "/Users/derekmtaylor/org/work/named-features-notes.org"
+       "/Users/derekmtaylor/org/work/potential-platform-improvements.org"
+       "/Users/derekmtaylor/org/work/useful-snippets.org"
+       "/Users/derekmtaylor/org/work/work-global-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240826-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240902-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240909-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240916-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240916-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240917-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240918-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240919-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240920-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240923-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240923-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240924-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240925-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240926-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240927-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240930-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20240930-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241001-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241002-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241003-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241004-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241005-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241007-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241007-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241008-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241009-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241010-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241011-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241014-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241014-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241015-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241016-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241017-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241018-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241019-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241020-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241021-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241021-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241022-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241023-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241024-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241025-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241028-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241028-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241029-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241030-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241031-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241101-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241102-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241104-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241104-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241106-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241107-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241108-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241111-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241111-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241112-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241113-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241114-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241118-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241119-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241120-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241122-tdl.org"
+       "/Users/derekmtaylor/org/tdls/20241209-weekly-tdl.org"
+       "/Users/derekmtaylor/org/tdls/global-tdl.org"
+       "/Users/derekmtaylor/org/tdls/miami-tdl.org"))
    '(org-babel-load-languages
-     '((elixir . t)
-       (scheme . t)
-       (js . t)
-       (shell . t)
-       (clojure . t)
-       (sql . t)
-       (java . t)
-       (python . t)
-       (groovy . t)
-       (emacs-lisp . t)))
+     '((elixir . t) (scheme . t) (js . t) (shell . t) (clojure . t) (sql . t)
+       (java . t) (python . t) (groovy . t) (emacs-lisp . t)))
    '(org-fold-core-style 'overlays)
    '(package-selected-packages
-     '(org-zettelkasten org-gcal forge nov vterm git-commit with-editor transient csv-mode sql-indent markdown-toc mmm-mode markdown-mode gh-md inflections cider-eval-sexp-fu cider sesman queue parseedn clojure-mode parseclj a wgrep smex ivy-hydra counsel-projectile counsel swiper ivy tide web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode vi-tilde-fringe open-junk-file ob-elixir lorem-ipsum link-hint helm-flx flycheck-credo flycheck highlight evil-indent-plus evil-exchange evil-ediff column-enforce-mode clean-aindent-mode company elixir-mode ws-butler winum volatile-highlights uuidgen toc-org spaceline powerline restart-emacs request popwin persp-mode pcre2el paradox spinner org-bullets neotree move-text macrostep linum-relative indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-iedit-state iedit evil-escape evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word bind-map bind-key auto-highlight-symbol auto-compile packed adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async which-key aggressive-indent rainbow-delimiters yas-minor-mode yasnippets use-package typescript-mode cider-hydra clj-refactor yaml-mode paredit rjsx-mode alchemist find-file-in-project magit))
+     '(a ace-jump-helm-line ace-link ace-window adaptive-wrap aggressive-indent
+         alchemist anzu async auto-compile auto-highlight-symbol avy bind-key
+         bind-map cider cider-eval-sexp-fu cider-hydra clean-aindent-mode
+         clj-refactor clojure-mode coffee-mode column-enforce-mode company compat
+         counsel counsel-projectile csv-mode dash define-word diminish dumb-jump
+         elisp-slime-nav elixir-mode epl eval-sexp-fu evil evil-anzu evil-args
+         evil-ediff evil-escape evil-exchange evil-iedit-state evil-indent-plus
+         evil-lisp-state evil-matchit evil-mc evil-nerd-commenter evil-numbers
+         evil-search-highlight-persist evil-surround evil-tutor evil-unimpaired
+         evil-visual-mark-mode evil-visualstar exec-path-from-shell expand-region
+         eyebrowse f fancy-battery fill-column-indicator find-file-in-project flx
+         flx-ido flycheck flycheck-clojure flycheck-credo forge gh-md git-commit
+         golden-ratio google-translate goto-chg helm helm-ag helm-core
+         helm-descbinds helm-flx helm-make helm-mode-manager helm-projectile
+         helm-swoop helm-themes highlight highlight-indentation highlight-numbers
+         highlight-parentheses hl-todo hungry-delete hydra iedit indent-guide
+         inflections ivy ivy-hydra js-doc js2-mode js2-refactor json-mode
+         json-reformat json-snatcher link-hint linum-relative livid-mode
+         lorem-ipsum lv macrostep magit markdown-mode markdown-toc mmm-mode
+         move-text multiple-cursors neotree nov ob-elixir open-junk-file
+         org-bullets org-gcal org-pdftools org-zettelkasten packed paradox paredit
+         parent-mode parseclj parseedn pcre2el persp-mode pkg-info popup popwin
+         powerline projectile queue rainbow-delimiters request restart-emacs
+         rjsx-mode s sesman simple-httpd skewer-mode smartparens smex spaceline
+         spinner sql-indent swiper tide toc-org transient typescript-mode
+         undo-tree use-package uuidgen vi-tilde-fringe volatile-highlights vterm
+         web-beautify wgrep which-key winum with-editor ws-butler yaml-mode
+         yas-minor-mode yasnippet yasnippets))
    '(ring-bell-function 'ignore)
    '(safe-local-variable-values
      '((cider-repl-init-code "(dev)")
