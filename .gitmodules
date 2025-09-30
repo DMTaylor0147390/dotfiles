@@ -14,6 +14,4 @@
     path = tmux/config
       url = https://github.com/dreamsofcode-io/tmux
 
-[submodule "tmux/config"]
-	path = tmux/config
-	url = https://github.com/dreamsofcode-io/tmux
+
